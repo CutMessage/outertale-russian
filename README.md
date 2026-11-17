@@ -17,45 +17,74 @@
 
 ## Установка
 
-### Готовый архив
+Перевод — это мод. Он не требует переустановки игры, не меняет её файлы и не трогает сохранения. Нужна только установленная **Outertale 5.04**.
 
-Самый простой способ — скачать [`outertale-ru-mod.zip`](https://github.com/CutMessage/outertale-russian/releases/latest) со страницы релизов и распаковать папку `ru_RU` в папку `spacetime/mods`:
+Сначала установите и один раз запустите игру — при первом запуске она создаёт папку `spacetime`, куда нужно положить мод.
 
-- Linux: `~/.config/spacetime/mods/`
-- macOS: `~/Library/Preferences/spacetime/mods/`
-- Windows: `%APPDATA%\spacetime\mods\`
+### Способ 1. Готовый архив (Windows, Linux, macOS)
 
-В архиве только мод (около 1 МБ), файлы игры не входят.
+1. Скачайте [`outertale-ru-mod.zip`](https://github.com/CutMessage/outertale-russian/releases/latest) со страницы релизов.
+2. Распакуйте архив. Внутри будет папка `ru_RU`.
+3. Положите папку `ru_RU` в папку `mods`:
 
-### Linux и macOS
+   | Система | Куда класть `ru_RU` |
+   | --- | --- |
+   | Windows | `%APPDATA%\spacetime\mods\ru_RU` |
+   | Linux | `~/.config/spacetime/mods/ru_RU` |
+   | macOS | `~/Library/Preferences/spacetime/mods/ru_RU` |
 
-1. Установите Outertale 5.04.
-2. Склонируйте репозиторий и запустите установщик:
+4. Запустите игру. При первом запуске перевод включится автоматически. Если этого не произошло — откройте настройки и выберите **ЯЗЫК → ru_RU**.
 
-   ```bash
-   git clone https://github.com/CutMessage/outertale-russian.git
-   cd outertale-russian
-   ./install.sh
-   ```
+Как быстро открыть нужную папку:
 
-3. Запустите игру. При первом запуске русский включится автоматически.
+- **Windows:** нажмите `Win+R`, вставьте `%APPDATA%\spacetime` и нажмите Enter.
+- **Linux:** в файловом менеджере нажмите `Ctrl+L` и вставьте `~/.config/spacetime/mods`.
+- **macOS:** в Finder нажмите `Cmd+Shift+G` и вставьте `~/Library/Preferences/spacetime/mods`.
 
-Мод копируется в:
+> Важно: внутри папки `mods` должна лежать именно папка `ru_RU`, а в ней — файл `index.js`. Если получилось `mods/ru_RU/ru_RU/index.js`, поднимите папку на один уровень выше.
 
-- Linux: `~/.config/spacetime/mods/ru_RU`
-- macOS: `~/Library/Preferences/spacetime/mods/ru_RU`
+### Способ 2. Установщик для Linux и macOS
 
-### Windows
+Нужен `git`, `bash` и установленная Outertale 5.04.
 
-Скопируйте папку `mods/ru_RU` в `%APPDATA%\spacetime\mods\ru_RU` или запустите PowerShell:
+```bash
+git clone https://github.com/CutMessage/outertale-russian.git
+cd outertale-russian
+./install.sh
+```
+
+Установщик сам найдёт папку `mods`, сохранит предыдущую версию перевода как резервную копию и скопирует новую. После этого запустите игру.
+
+### Способ 3. Установщик для Windows
+
+Скачайте репозиторий (кнопка **Code → Download ZIP**), распакуйте и запустите PowerShell в папке проекта:
 
 ```powershell
 .\install.ps1
 ```
 
-### Вручную
+Либо просто скопируйте папку `mods\ru_RU` в `%APPDATA%\spacetime\mods\ru_RU`.
 
-Скопируйте `mods/ru_RU` в папку `spacetime/mods`. Язык можно выбрать в настройках: **ЯЗЫК → ru_RU**. При первом запуске мод включает его сам.
+### Способ 4. Вручную из репозитория
+
+Скопируйте папку `mods/ru_RU` из репозитория в папку `spacetime/mods` для вашей системы (пути в таблице выше). Больше ничего настраивать не нужно.
+
+### Как проверить, что всё работает
+
+- В главном меню и интро текст на русском.
+- В настройках появился язык `ru_RU`.
+- В папке `mods/ru_RU` есть файл `index.js` размером около 4 МБ.
+
+Если перевод не появился:
+
+1. Убедитесь, что игра именно **5.04**.
+2. Проверьте, что путь заканчивается на `spacetime/mods/ru_RU/index.js`.
+3. Полностью закройте и снова запустите игру.
+4. Выберите язык вручную: **Настройки → ЯЗЫК → ru_RU**.
+
+### Обновление перевода
+
+Скачайте новый архив и замените папку `ru_RU` целиком. `install.sh` и `install.ps1` делают резервную копию старой версии автоматически. Сохранения при обновлении не затрагиваются.
 
 ## Как это выглядит
 
