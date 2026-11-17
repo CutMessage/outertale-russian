@@ -1,0 +1,20 @@
+# Кэш и промежуточные файлы
+cache/
+dist/
+packaging/work/
+packaging/app.asar
+
+# Пакеты Arch Linux
+*.pkg.tar.zst
+*.pkg.tar.xz
+*.pkg.tar.gz
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Редакторы / ОС
+.DS_Store
+Thumbs.db
+*.swp

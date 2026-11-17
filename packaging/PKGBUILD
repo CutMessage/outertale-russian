@@ -1,0 +1,28 @@
+pkgname=outertale-ru
+pkgver=5.04
+pkgrel=2
+epoch=1
+pkgdesc="Outertale (Project Spacetime) with Russian localization"
+arch=('x86_64')
+url="https://gitgud.io/spacey432/spacetime"
+license=('custom')
+depends=('bash' 'electron')
+provides=('outertale')
+conflicts=('outertale')
+replaces=('outertale')
+options=('!debug')
+source=()
+sha256sums=()
+
+package() {
+   install -d "$pkgdir/usr/share/outertale-ru"
+   install -d "$pkgdir/usr/bin"
+   install -d "$pkgdir/usr/share/applications"
+   install -d "$pkgdir/usr/share/pixmaps"
+
+   install -m 644 "$startdir/app.asar" "$pkgdir/usr/share/outertale-ru/app.asar"
+   install -m 755 "$startdir/outertale-ru.sh" "$pkgdir/usr/bin/outertale-ru"
+   ln -s outertale-ru "$pkgdir/usr/bin/outertale"
+   install -m 644 "$startdir/outertale-ru.desktop" "$pkgdir/usr/share/applications/outertale-ru.desktop"
+   install -m 644 "$startdir/icon.png" "$pkgdir/usr/share/pixmaps/outertale-ru.png"
+}

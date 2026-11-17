@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Outertale (Русский)
+Comment=Outertale с русской локализацией
+Exec=outertale-ru
+Icon=outertale-ru
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Game;

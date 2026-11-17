@@ -1,0 +1,17 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # Проверяем, что index.js собран из актуальных словарей
+      - name: Проверить сборку мода
+        run: python3 tools/build_mod.py --check
