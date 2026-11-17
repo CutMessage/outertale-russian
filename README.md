@@ -17,6 +17,16 @@
 
 ## Установка
 
+### Готовый архив
+
+Самый простой способ — скачать [`outertale-ru-mod.zip`](https://github.com/CutMessage/outertale-russian/releases/latest) со страницы релизов и распаковать папку `ru_RU` в папку `spacetime/mods`:
+
+- Linux: `~/.config/spacetime/mods/`
+- macOS: `~/Library/Preferences/spacetime/mods/`
+- Windows: `%APPDATA%\spacetime\mods\`
+
+В архиве только мод (около 1 МБ), файлы игры не входят.
+
 ### Linux и macOS
 
 1. Установите Outertale 5.04.

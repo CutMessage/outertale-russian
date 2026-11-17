@@ -1,0 +1,50 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Убеждаемся, что мод собран из актуальных словарей
+      - name: Проверить сборку мода
+        run: python3 tools/build_mod.py --check
+
+      # Готовый архив для ручной установки: распаковать в папку mods
+      - name: Собрать zip с модом
+        run: make zip
+
+      - name: Опубликовать релиз
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/outertale-ru-mod.zip
+          body: |
+            Готовый мод русской локализации Outertale 5.04.
+
+            ## Установка
+
+            1. Установите Outertale 5.04.
+            2. Скачайте `outertale-ru-mod.zip` и распакуйте папку `ru_RU` в:
+               - Linux: `~/.config/spacetime/mods/`
+               - macOS: `~/Library/Preferences/spacetime/mods/`
+               - Windows: `%APPDATA%\spacetime\mods\`
+
+            Либо склонируйте репозиторий и запустите `./install.sh`
+            (Linux/macOS) или `install.ps1` (Windows).
+
+            При первом запуске русский язык включится автоматически.
+            Сменить язык можно в настройках: ЯЗЫК (LANGUAGE).
+
+            В архиве только мод, файлы игры не входят.
+            Большая часть текста переведена машинно — исправления приветствуются.
